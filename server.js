@@ -3,7 +3,7 @@ const hbs = require('hbs');
 var app = express();
 var fs = require('fs');
 app.set('view engine','hbs');
-
+const port = process.env.PORT || 3000;
 app.use((req,res,next)=>{
 	var now = new Date().toString();
 	var log = `${now} ${req.method} ${req.url}`;
@@ -43,6 +43,6 @@ app.get('/',(req,res)=>{
 		Skills: 'Full Stack Developer'
 	});
 });
-app.listen(3000,()=>{
-	console.log('Server is up on port 3000');
+app.listen(port,()=>{
+	console.log('Server is up on port '+port);
 });
