@@ -10,7 +10,7 @@ app.use((req,res,next)=>{
 	fs.appendFile('server.log',log+'\n',(err)=>{
 		console.log(err);
 	});
-	next();	
+	next();
 });
 
 hbs.registerPartials(__dirname+'/views/partials');
@@ -24,8 +24,8 @@ hbs.registerHelper('screamIt',(text)=>{
 });
 
 app.use((req,res,next)=>{
-	//res.render('maintenance.hbs');
-	next();
+	res.render('maintenance.hbs');
+	//next();
 });
 
 app.use(express.static(__dirname+'/public'));
